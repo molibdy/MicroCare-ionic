@@ -1,14 +1,13 @@
-import { ProgressService } from './../../../shared/progress.service';
-import { Ingredient } from './../../../models/ingredient';
 import { Component, OnInit } from '@angular/core';
 import { Favourites } from 'src/app/models/favourites';
 import { IngestaService } from 'src/app/shared/ingesta.service';
 import { Progress } from 'src/app/models/progress';
+import { ProgressService } from 'src/app/shared/progress.service';
 
 @Component({
   selector: 'app-favoritos',
   templateUrl: './favoritos.component.html',
-  styleUrls: ['./favoritos.component.css']
+  styleUrls: ['./favoritos.component.scss']
 })
 export class FavoritosComponent implements OnInit {
   // borrando favorito 

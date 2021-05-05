@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { IngestaMenuPageRoutingModule } from './ingesta-menu-routing.module';
 
 import { IngestaMenuPage } from './ingesta-menu.page';
+import { FavoritosComponent } from 'src/app/componentes/favoritos/favoritos.component';
+import { IntroducirManualComponent } from 'src/app/componentes/introducir-manual/introducir-manual.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { IngestaMenuPage } from './ingesta-menu.page';
     IonicModule,
     IngestaMenuPageRoutingModule
   ],
-  declarations: [IngestaMenuPage]
+  declarations: [IngestaMenuPage, FavoritosComponent, IntroducirManualComponent]
 })
 export class IngestaMenuPageModule {}

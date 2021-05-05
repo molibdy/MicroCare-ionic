@@ -6,6 +6,8 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { IntroducirManualComponent } from '../componentes/introducir-manual/introducir-manual.component';
+import { FavoritosComponent } from '../componentes/favoritos/favoritos.component';
 
 
 @NgModule({
@@ -16,6 +18,6 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
     HomePageRoutingModule
   ],
   declarations: [HomePage,
-  NavBarComponent]
+  NavBarComponent, FavoritosComponent,IntroducirManualComponent]
 })
 export class HomePageModule {}

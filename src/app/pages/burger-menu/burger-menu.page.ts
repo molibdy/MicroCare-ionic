@@ -12,8 +12,8 @@ import { RecetasService } from 'src/app/shared/recetas.service';
 
 @Component({
   selector: 'app-burger-menu',
-  templateUrl: './burger-menu.component.html',
-  styleUrls: ['./burger-menu.component.css']
+  templateUrl: './burger-menu.page.html',
+  styleUrls: ['./burger-menu.page.scss']
 })
 export class BurgerMenuPage implements OnInit {
   public inputText:string = ""

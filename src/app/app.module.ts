@@ -6,12 +6,16 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IngestaMenuPipe } from './pages/ingesta-menu.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { GramsPipe } from './pipes/grams.pipe';
+import { GramosPipe } from './pipes/gramos.pipe';
+
+
 
 @NgModule({
-  declarations: [AppComponent, IngestaMenuPipe],
+  declarations: [AppComponent, GramsPipe, GramosPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

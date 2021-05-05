@@ -15,7 +15,7 @@ import { ProgressService } from 'src/app/shared/progress.service';
 @Component({
   selector: 'app-introducir-manual',
   templateUrl: './introducir-manual.component.html',
-  styleUrls: ['./introducir-manual.component.css']
+  styleUrls: ['./introducir-manual.component.scss']
 })
 export class IntroducirManualComponent implements OnInit {
 

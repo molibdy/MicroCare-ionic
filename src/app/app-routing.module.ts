@@ -30,6 +30,22 @@ const routes: Routes = [
     loadChildren: () => import('./pages/preferencias/preferencias.module').then( m => m.PreferenciasPageModule)
   },
   {
+    path: 'progreso',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'tutorial',
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: 'calendario',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
   },

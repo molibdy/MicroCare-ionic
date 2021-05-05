@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-intro',
-  templateUrl: './intro.page.html',
-  styleUrls: ['./intro.page.scss']
+  selector: 'app-about',
+  templateUrl: './about.page.html',
+  styleUrls: ['./about.page.scss']
 })
-export class IntroComponent implements OnInit {
+export class AboutPage implements OnInit {
   public posicion:number = 0;
   public class:string = "";
   public imgIntro:string ="";

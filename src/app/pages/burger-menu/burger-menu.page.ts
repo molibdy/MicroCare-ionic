@@ -15,7 +15,7 @@ import { RecetasService } from 'src/app/shared/recetas.service';
   templateUrl: './burger-menu.component.html',
   styleUrls: ['./burger-menu.component.css']
 })
-export class BurgerMenuComponent implements OnInit {
+export class BurgerMenuPage implements OnInit {
   public inputText:string = ""
   public foco:boolean = false
   public focoBuscador:boolean = false

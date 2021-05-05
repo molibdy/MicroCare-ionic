@@ -6,7 +6,7 @@ import { IngestaService } from 'src/app/shared/ingesta.service';
   templateUrl: './ingesta-menu.component.html',
   styleUrls: ['./ingesta-menu.component.css']
 })
-export class IngestaMenuComponent implements OnInit {
+export class IngestaMenuPage implements OnInit {
   
 
   constructor(public apiIngesta:IngestaService) { }

@@ -18,7 +18,15 @@ const routes: Routes = [
   {
     path: 'burger-menu',
     loadChildren: () => import('./pages/burger-menu/burger-menu.module').then( m => m.BurgerMenuPageModule)
+  },  {
+    path: 'buscador-recetas',
+    loadChildren: () => import('./pages/buscador-recetas/buscador-recetas.module').then( m => m.BuscadorRecetasPageModule)
   },
+  {
+    path: 'preferencias',
+    loadChildren: () => import('./pages/preferencias/preferencias.module').then( m => m.PreferenciasPageModule)
+  },
+
 ];
 
 @NgModule({

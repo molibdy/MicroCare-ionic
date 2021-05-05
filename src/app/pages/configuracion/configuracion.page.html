@@ -1,0 +1,80 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>configuracion</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <app-botton-cruz routerLink="../"></app-botton-cruz>
+  <div class="row-center">
+      <mat-icon class="blue left-padding" true svgIcon="configuracion"></mat-icon>
+      <div class="text">Configuración</div>
+  </div>
+  
+  <div class="br"></div>
+  <div class="br"></div>
+  
+  <div class="tarjeta">
+  
+      <div class="br"></div>
+  
+      <div class=col-center>
+          <div class="circlePic " (click)="cambiarFoto()"> 
+              <div class="imageProfile"> <img [src]="user.profile_picture" alt="¡Ponte una foto!"></div>
+          </div>
+      </div>
+  
+      <div class="changePic" *ngIf="showChangePic">
+          <div class="row-left subtitle">Añade la url de tu foto</div>
+          <!-- <div class="br"></div> -->
+         <div class="col-center">
+             <div class="inputPhoto">
+                 <input [(ngModel)]="newPhoto" placeholder="Cambiar foto">
+             </div>
+          </div>
+      </div>
+  
+       <div class="br"></div>
+  
+      <div class="row-left text">Nombre</div>
+       <!-- <div class="br"></div> -->
+      <div class="col-center">
+          <div class="input">
+              <input [(ngModel)]="newName" placeholder="Cambiar nombre de usuario">
+          </div>
+      </div>
+  
+       <div class="br"></div>
+       <div class="br"></div>
+  
+      <div class="row-left text">E-mail</div>
+       <!-- <div class="br"></div> -->
+      <div class="col-center">
+          <div class="input">
+              <input [(ngModel)]="newEmail" placeholder="Cambiar E-mail">
+          </div>
+      </div>
+  
+       <div class="br"></div>
+       <div class="br"></div>
+  
+      <div class="row-left text">
+          Contraseña
+      </div>
+       <!-- <div class="br"></div> -->
+      <div class="col-center">
+          <div class="input">
+              <input [(ngModel)]="newPassword" placeholder="Nueva Contraseña">
+          </div>
+      </div>
+      
+       <div class="br"></div>
+       <div class="br"></div>
+  
+      <div class="col-center">
+          <button class=" button-blue" (click)="guardarCambios()">Actualizar</button>
+      </div>
+      
+  </div>
+  <div class="footer"></div>
+</ion-content>

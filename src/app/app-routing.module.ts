@@ -6,6 +6,8 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+
+  //////q
   {
     path: '',
     redirectTo: 'home',
@@ -20,6 +22,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/burger-menu/burger-menu.module').then( m => m.BurgerMenuPageModule)
   },
   {
+    path: 'buscador-recetas',
+    loadChildren: () => import('./pages/buscador-recetas/buscador-recetas.module').then( m => m.BuscadorRecetasPageModule)
+  },
+  {
+    path: 'preferencias',
+    loadChildren: () => import('./pages/preferencias/preferencias.module').then( m => m.PreferenciasPageModule)
+  },
+  {
     path: 'calendario',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
@@ -32,6 +42,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/vista-receta/vista-receta.module').then( m => m.VistaRecetaPageModule)
   },
 ];
+
 
 @NgModule({
   imports: [

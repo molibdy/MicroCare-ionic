@@ -11,11 +11,11 @@
     <div class=" 100 iphoneCard">
         <div class="col-center menu-item-top">
             <div class="row-center">
-                <mat-icon (click)="prevDay()"svgIcon='arrow-expansion' class='colorGray flecha-izq'></mat-icon>
+                <ion-icon (click)="prevDay()" src='../../../assets/icon/arrow-expansion.svg' class='colorGray flecha-izq'></ion-icon>
                     <div class="title">
                         {{fecha}} 
                     </div> 
-                    <mat-icon (click)="nextDay()" svgIcon='arrow-expansion' class='colorGray flecha-dcha'></mat-icon>
+                    <ion-icon (click)="nextDay()"  src='../../../assets/icon/arrow-expansion.svg' class='colorGray flecha-dcha'></ion-icon>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
                 </div>
                 
                 <div class="cruz-container" (click)="deletePlan(receta.planned_recipe_id)"> 
-                    <mat-icon class="colorGray cruz"svgIcon="close"></mat-icon>
+                    <ion-icon class="colorGray cruz"  src='../../../assets/icon/close.svg'></ion-icon>
                 </div>
             </div>
         </div>

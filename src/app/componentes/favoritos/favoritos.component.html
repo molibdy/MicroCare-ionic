@@ -27,7 +27,7 @@
       </div> 
       </div>
       <div class="favoriteCard  col-center textBlueSemi20 relative" *ngFor="let favorito of apiIngesta.listaFavoritos; let i = index" [ngClass]="favorito.class" (click)="consumirFavorito(i)" [style.background]="favorito.microscore[0].color">
-         <div class="fondo-cerrar" (click)='quitarFavorito(i)'> <mat-icon class=" iconSizeGray  " svgIcon='close' ></mat-icon></div>
+         <div class="fondo-cerrar" (click)='quitarFavorito(i)'> <ion-icon class=" iconSizeGray  " src="../../../assets/icon/close.svg" ></ion-icon></div>
               {{favorito.name}}
               <div class="bordeAnadir" *ngIf="this.detalleMicro">hgfd</div>
 

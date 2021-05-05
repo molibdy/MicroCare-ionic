@@ -50,7 +50,7 @@
 
                 <!-- <div class="row-right" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber)' > -->
                   <button class="boton-anadir marginleft10" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber); peso.value=""; ingrediente.value=""'>
-                    <mat-icon class=" iconSizeGrayAdd  " svgIcon='add' ></mat-icon>
+                    <ion-icon class=" iconSizeGrayAdd  " src="../../../assets/icon/close.svg" ></ion-icon>
                   </button>
               
 
@@ -69,7 +69,7 @@
               <div class="row-left listaIngredientes" >
                     <ul >
                       <li *ngFor="let ingredient of listaIngredientes; let i = index" class=" ingredientLine">
-                        <mat-icon class="quitarIngrediente iconSizeGray " svgIcon='close' (click)='quitarIngrediente(i)'></mat-icon>
+                        <ion-icon class="quitarIngrediente iconSizeGray " src="../../../assets/icon/close.svg" (click)='quitarIngrediente(i)'></ion-icon>
                         {{ingredient.peso | gramos}} de {{ingredient.ingrediente.ingredient_name}} 
                       </li>
                     </ul>

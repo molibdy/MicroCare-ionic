@@ -1,0 +1,193 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>calendario</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+ <!-- añadir TU DIA -->
+ <app-botton-burger></app-botton-burger>
+ <div class="container">
+    <div class=" 100 iphoneCard">
+        <div class="col-center menu-item-top">
+            <div class="row-center">
+                <mat-icon (click)="prevDay()"svgIcon='arrow-expansion' class='colorGray flecha-izq'></mat-icon>
+                    <div class="title">
+                        {{fecha}} 
+                    </div> 
+                    <mat-icon (click)="nextDay()" svgIcon='arrow-expansion' class='colorGray flecha-dcha'></mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recetas del día -->
+
+<div  class="col-center">
+    <div class="iphoneCard">
+       
+        <div class="col-center menu-item-top">
+            <div class="row-left">
+                    <div class="title">
+                        Planning
+                    </div>
+            </div>
+        </div>
+
+   
+
+        <!-- Lista de recetas planeadas -->
+        <div class="col-center menu-item" *ngIf="plannedRecipes.length==0">
+            <div class="row-center row-item">
+
+                    <div class="text">
+                        No tienes recetas planeadas
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-center menu-item" *ngFor="let receta of plannedRecipes">
+            <div class="row-spaced row-item">
+                <div class="row-left">
+                    <div class="check" (click)="addRegister(receta.recipe_id,receta.planned_recipe_id)">
+                    </div>
+                    <div class="text">
+                        {{receta.recipe_name}}
+                    </div>
+                </div>
+                
+                <div class="cruz-container" (click)="deletePlan(receta.planned_recipe_id)"> 
+                    <mat-icon class="colorGray cruz"svgIcon="close"></mat-icon>
+                </div>
+            </div>
+        </div>
+       
+     
+        <div class="col-center menu-item-bottom">
+            <div class="row-center ">
+                    <button class="button-blue" routerLink="../buscar-receta">
+                        Añadir receta
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Consumiciones -->
+
+<div class="col-center">
+    <div class="iphoneCard">
+       
+        <div class="col-center menu-item-top">
+            <div class="row-left">
+                    <div class="title">
+                        Consumido hoy:
+                    </div>
+            </div>
+        </div>
+    
+
+        <div class="col-center menu-item" *ngIf="consumedRecipes.length==0 && consumedFavourites.length==0 && consumedIngestas.length==0">
+            <div class="row-center row-item">
+
+                    <div class="text">
+                        Aún no has consumido nada
+                    </div>
+            </div>
+        </div>
+  
+     <!-- Lista de recetas consumidas -->
+
+        <div class="col-center menu-item" *ngFor="let receta of consumedRecipes">
+            <div class="row-spaced row-item" >
+                <!-- <div class="check" (click)="addRegister(receta.planned_recipe_id)">
+                    
+                </div> -->
+                <div class="text">
+                    {{receta.recipe_name}}
+                </div>
+
+                <div class="link" (click)="deshacer(receta.recipe_id,receta.planned_recipe_id)"> 
+                    deshacer
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Lista de favoritos consumidos -->
+
+        <div class="col-center menu-item" *ngFor="let favorito of consumedFavourites">
+            <div class="row-spaced row-item" >
+                <!-- <div class="check" (click)="addRegister(favorito.planned_recipe_id)">
+                    
+                </div> -->
+                <div class="text">
+                    {{favorito.name}}
+                </div>
+
+                <div class="link" (click)="deshacerFavorito(favorito.favourite_id,favorito.consumed_favourites_id)"> 
+                    deshacer
+                </div>
+            </div>
+        </div>
+       
+        <!-- Lista de ingestas consumidas -->
+
+        <div class="col-center menu-item" *ngFor="let ingesta of consumedIngestas" >
+            <div class="row-spaced row-item">
+         
+                <div class="text">
+                    {{ingesta.name}}
+                </div>
+
+                <div class="link" (click)="deshacerIngesta(ingesta.intake_id)"> 
+                    eliminar
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- Retos del día -->
+<!-- 
+<div id="retos" class="col-center">
+    <div class="iphoneCard">
+        <div class="col-center menu-item-top">
+            <div class="row-left">
+                    <div class="title">
+                        Retos
+                    </div>
+            </div>
+        </div>
+    
+        <div class="col-center menu-item" *ngFor="let reto of retos">
+            <div class="row-left row-item">
+                <div class="check" (click)="addRegister(reto.id)">
+                    
+                </div>
+                <div class="text">
+                    {{reto}}
+                </div>
+            </div>
+        </div>
+       
+    
+    </div>
+  
+    
+</div> -->
+<div class="footer"></div>
+<div class="footer"></div>
+
+
+
+
+</ion-content>

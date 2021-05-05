@@ -1,0 +1,69 @@
+<app-botton-cruz routerLink="../"></app-botton-cruz>
+
+<div class="tarjeta">
+    
+    <div class="row-center ancho100">
+        <div class="circlePic"><app-micronutrient-chart></app-micronutrient-chart></div>        
+    </div>
+
+    <div class="br"></div>
+
+    <div class="row-center ancho100">
+        <div class="text">{{MicronutrientesService.selectedMicronutriente.micronutrient_name | uppercase}}
+        </div>
+    </div>
+
+     <div class="br"></div>
+    <div class="sub-titulo">
+        Ingredientes ricos en {{MicronutrientesService.selectedMicronutriente.micronutrient_name}}:
+    </div>
+    <div class="br"></div>
+    <div class="row-left wrap ancho100 chip-container">
+        <div *ngFor="let ingrediente of ingredientes"> 
+            <div class="chip-grande" [ngStyle]="{'border-color': MicronutrientesService.selectedGroup.color2}">{{ingrediente.ingredient_name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="br"></div>
+    <div class="custom-hr"></div>
+    <div class="br"></div>
+
+    <div class="sub-titulo">
+        Recetas ricas en {{MicronutrientesService.selectedMicronutriente.micronutrient_name}}
+    </div>
+
+     <div class="br"></div>
+     <div  class="wrapper">
+        <div *ngFor="let receta of recetas; let i=index" class="item" (click)="verRecetaMicro(i)">
+            <div class="row-left"> 
+                <div class="chip1" *ngIf="receta.dietas[0]">
+                    {{receta.dietas[0]}}
+                </div>
+                <div class="chip2" *ngIf="receta.dietas.length>1">
+                    {{receta.dietas[1]}}
+                </div>
+            </div>
+            <div class="foto">
+                <img [src]="receta.photo_url">
+            </div>
+            <div class="row-center">
+                <div class="row-center">
+                    <div class="nombre-receta">
+                        {{receta.recipe_name}}
+                    </div>
+                </div>
+                <div class="row-center">
+                    <div class="chip-micro1" [style.background-color]="receta.microscore[0].color">
+                        {{receta.microscore[0].acronym}}
+                    </div>
+                    <div class="chip-micro2" [style.background-color]="receta.microscore[1].color">
+                        {{receta.microscore[1].acronym}}
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer"></div>
+<div class="footer"></div>

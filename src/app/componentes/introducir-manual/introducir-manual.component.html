@@ -1,0 +1,159 @@
+
+
+<div class="col-center busqueda">
+  <!--   ////// primera parte del menu ingesta sin hidden-->
+   <div *ngIf="!hiddenIngesta">
+        <div class="row-left textBoldGray  menu-item-expandible marginLeft12 marginTop10 ">
+          <div>Introduce los alimentos que has consumido</div>
+        </div>
+
+        <div class=" custom-hr-2"></div>
+
+
+        <div class="">
+          <!-- <div class="col-center"> -->
+            <div class="row-left rowInputs ">
+
+              <!-- Ingrediente con su input -->
+              
+              
+                  <mat-form-field  class=" inputGray" appearance="none">
+                    <div class="  col-left  colorGray">
+                        <div class="textBlueSemi20 marginBottom6 marginleft6">Ingrediente</div>
+
+                        <input type="text"
+                                placeholder="Escribe aquí"
+                                aria-label="Number"
+                                matInput
+                                [formControl]="myControl"
+                                [matAutocomplete]="auto"
+                                 #ingrediente
+                                 class="inputIngrediente">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                              {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                  </mat-form-field>
+            
+               
+              
+                <!-- Cantidad con su input -->
+                <div class="colorGray inputGray paddingLikeMat">
+                    <div class=" textBlueSemi20 marginBottom6 marginleft6">Cantidad</div>
+                    <div class="row-left inputCantidad ">
+                        <input type="number"  #peso>
+                        <div class=" text20Gray"  >g</div>
+                    </div>
+                </div>
+
+                <!-- <div class="row-right" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber)' > -->
+                  <button class="boton-anadir marginleft10" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber); peso.value=""; ingrediente.value=""'>
+                    <mat-icon class=" iconSizeGrayAdd  " svgIcon='add' ></mat-icon>
+                  </button>
+              
+
+            </div>  <!-- Fin de rowInputs -->
+        </div>
+           
+          
+          <div class=" custom-hr-2"></div>
+
+
+          <!-- Lista de alimentos añadidos -->
+
+          <div class=" textBoldGray  menu-item-expandible marginLeft12 ">Alimentos consumidos:</div>
+
+          <div class="row-left  menu-item-expandible colorGray">
+              <div class="row-left listaIngredientes" >
+                    <ul >
+                      <li *ngFor="let ingredient of listaIngredientes; let i = index" class=" ingredientLine">
+                        <mat-icon class="quitarIngrediente iconSizeGray " svgIcon='close' (click)='quitarIngrediente(i)'></mat-icon>
+                        {{ingredient.peso | gramos}} de {{ingredient.ingrediente.ingredient_name}} 
+                      </li>
+                    </ul>
+              </div>
+          </div>
+        <!-- Fin de lista de alimentos añadidos -->  
+        <div class="row-center"><button class="button-blue colorDark" (click)='registrarIngesta()' >Registrar</button></div>
+
+    </div>
+   
+
+        <!-- Guardar favoritos -->
+
+      <div  *ngIf="hiddenIngesta">
+        
+          <div class="mensaje-container textBlueRegular16" >
+            ¡Consumo registrado!
+            <a class="link" (click)="anadirFavorito()">¿Guardar como favorito?</a>
+          </div>
+         
+
+          
+          <div class=" widtMenu" *ngIf="showGuardarFavorito">
+              <div class="rowInputs-nombre">
+                
+                  <input class="inputIngrediente" type="text"  #nombreReceta placeholder="Nombre">
+              </div>
+               
+            
+              
+              <div class="row-center marginBottom10">
+                <button class="boton-guardar colorWhite dosis-bold backgroundBlue marginLeft10 " 
+                (click)='guardarFavorito(nombreReceta.value)'>guardar</button>
+              </div>
+          </div>
+
+          <div class="microscore-container textBlueRegular16" *ngIf="ingestaService.lastIntake.microscore.length>0">
+            Nutrientes en esta ingesta:
+            <app-microscore-ingesta></app-microscore-ingesta>
+          </div>
+      </div>
+</div>
+
+
+
+
+      <!-- //////// tarjeta anadir pasos 
+        -->
+        <!-- <div></div>
+        <div *ngIf="isRecAnadida">
+        <div class="row-left textBoldGray  menu-item-expandible marginLeft12 relative">Añadir pasos<div class="separador"></div><mat-icon class=" iconSizeGray " svgIcon='close' (click)='cerrarPasos()'></mat-icon></div>
+
+          <div class="row-left widthMenu menu-item-expandible colorGray">
+            <div class="row-left listaIngredientes">
+              <div class=" widthMenu">
+                <div class="row-left">
+                  <div class="inputPasos">
+                  <textarea #pasos class="textBoldGray"></textarea>
+                </div>
+              
+                </div>
+        
+              </div>
+              
+            </div>
+        </div>
+        <div class="row-left widthMenu menu-item-expandible colorGray" >
+          <div class=" marginRight10 textBoldGray height100">Nombre</div>
+          <div class="row-left inputGray ">
+              <input type="text"  #nombreReceta placeholder="Ponle nombre a tu receta" >
+          </div>
+      </div>
+      <div class="row-left widthMenu menu-item-expandible colorGray">
+        <div class=" row-left marginRight10 textBoldGray height100">Imagen</div>
+        <div class="row-left inputGray ">
+            <mat-icon svgIcon='search' class="absolute"></mat-icon>
+            <input type="text"  #imagenUrl placeholder="introduce url">
+        </div>
+    </div>
+        </div>
+
+        
+
+        <div class="row-center textGuardarReceta" (click)='switchReceta()' *ngIf='!isRecAnadida'>Guardar como Receta</div>
+        <div class="row-center textGuardarReceta" (click)='registrarReceta(pasos,nombreReceta,Imagenurl)' *ngIf='isRecAnadida' routerLink="../">Guardar Receta</div> -->
+
+  <!-- /////////////// anadir favorito -->

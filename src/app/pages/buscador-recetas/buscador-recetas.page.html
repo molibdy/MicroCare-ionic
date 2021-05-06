@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>buscador-recetas</ion-title>
   </ion-toolbar>
@@ -6,7 +6,7 @@
 
 <ion-content>
 
-</ion-content>
+</ion-content> -->
 
 <app-botton-burger></app-botton-burger>
 
@@ -30,7 +30,7 @@
         <div class="br"></div>
 
         <div  class="wrapper">
-            <div *ngFor="let receta of listaParaTi" class="item" routerLink="receta">
+            <div *ngFor="let receta of listaParaTi" class="item" [routerLink]="receta">
                 <div class="row-left"> 
                     <div class="chip1">
                         {{receta.preferencia1}}
@@ -71,7 +71,7 @@
             <div class="br"></div>
 
     <div class="wrapper">
-        <div *ngFor="let receta of listaNuevas" class="item" routerLink="receta">
+        <div *ngFor="let receta of listaNuevas" class="item" routerLink="/receta">
             <div class="row-left"> 
                 <div class="chip1">
                     {{receta.preferencia1}}

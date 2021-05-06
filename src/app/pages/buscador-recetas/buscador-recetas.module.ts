@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { BuscadorRecetasPageRoutingModule } from './buscador-recetas-routing.module';
 
 import { BuscadorRecetasPage } from './buscador-recetas.page';
+import { RecetasComponent } from 'src/app/componentes/buscador/recetas/recetas.component';
+import { BottonBurgerComponent } from 'src/app/componentes/botton-burger/botton-burger.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BuscadorRecetasPageRoutingModule
+    BuscadorRecetasPageRoutingModule,
+   
   ],
-  declarations: [BuscadorRecetasPage]
+  declarations: [BuscadorRecetasPage, RecetasComponent, BottonBurgerComponent]
 })
 export class BuscadorRecetasPageModule {}

@@ -30,10 +30,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/preferencias/preferencias.module').then( m => m.PreferenciasPageModule)
   },
   {
-    path: 'progreso',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },

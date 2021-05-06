@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FichaMicroComponent } from './ficha-micro.component';
+import { FichaMicroPage } from './ficha-micro.page';
 
-describe('FichaMicroComponent', () => {
-  let component: FichaMicroComponent;
-  let fixture: ComponentFixture<FichaMicroComponent>;
+describe('FichaMicroPage', () => {
+  let component: FichaMicroPage;
+  let fixture: ComponentFixture<FichaMicroPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FichaMicroComponent ],
+      declarations: [ FichaMicroPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FichaMicroComponent);
+    fixture = TestBed.createComponent(FichaMicroPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -54,6 +54,14 @@ const routes: Routes = [
     path: 'vista-receta',
     loadChildren: () => import('./pages/vista-receta/vista-receta.module').then( m => m.VistaRecetaPageModule)
   },
+  {
+    path: 'ficha-grupo',
+    loadChildren: () => import('./pages/ficha-grupo/ficha-grupo.module').then( m => m.FichaGrupoPageModule)
+  },
+  {
+    path: 'ficha-micro',
+    loadChildren: () => import('./pages/ficha-micro/ficha-micro.module').then( m => m.FichaMicroPageModule)
+  },
 ];
 
 

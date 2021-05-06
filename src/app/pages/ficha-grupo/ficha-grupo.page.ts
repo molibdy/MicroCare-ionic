@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Group } from 'src/app/models/group';
@@ -11,10 +10,10 @@ import { Microscore } from "src/app/models/microscore";
 
 @Component({
   selector: 'app-ficha-grupo',
-  templateUrl: './ficha-grupo.component.html',
-  styleUrls: ['./ficha-grupo.component.scss'],
+  templateUrl: './ficha-grupo.page.html',
+  styleUrls: ['./ficha-grupo.page.scss'],
 })
-export class FichaGrupoComponent implements OnInit {
+export class FichaGrupoPage implements OnInit {
 
 
   public micronutrientes: Micronutrients[]
@@ -79,7 +78,7 @@ export class FichaGrupoComponent implements OnInit {
                   }console.log(this.recetasServicio.recetasRicas)
                 }
               }
-              this.router.navigate(["/home/grupo/micro"])
+              this.router.navigate(["/ficha-micro"])
             }  
           })
         }

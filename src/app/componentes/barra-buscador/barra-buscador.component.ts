@@ -13,7 +13,7 @@ import { RecetasService } from 'src/app/shared/recetas.service';
 @Component({
   selector: 'app-barra-buscador',
   templateUrl: './barra-buscador.component.html',
-  styleUrls: ['./barra-buscador.component.css']
+  styleUrls: ['./barra-buscador.component.scss']
 })
 export class BarraBuscadorComponent implements OnInit {
 
@@ -114,7 +114,7 @@ rutaMicro(i){
               }
             }
             this.loadingService.showNavBar=true;
-            this.router.navigate(["/home/grupo/micro"])
+            this.router.navigate(["/ficha-micro"])
           }  
         })
       }
@@ -131,7 +131,7 @@ rutaReceta(i){
    }
    this.recetasServicio.selectedReceta = this.recetasBuscar[i]
    this.loadingService.showNavBar=true;
-   this.router.navigate(['buscar-receta/receta']);
+   this.router.navigate(['vista-receta']);
   //  console.log(this.recetasBuscar)
   })
  }

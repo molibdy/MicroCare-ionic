@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BurgerMenuPageRoutingModule } from './burger-menu-routing.module';
 
 import { BurgerMenuPage } from './burger-menu.page';
+import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { BurgerMenuPage } from './burger-menu.page';
     IonicModule,
     BurgerMenuPageRoutingModule
   ],
-  declarations: [BurgerMenuPage]
+  declarations: [BurgerMenuPage, BottonCruzComponent]
 })
 export class BurgerMenuPageModule {}

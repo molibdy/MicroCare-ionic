@@ -10,11 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { GramsPipe } from './pipes/grams.pipe';
 import { GramosPipe } from './pipes/gramos.pipe';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, GramsPipe, GramosPipe],
+  declarations: [AppComponent, GramsPipe, GramosPipe, NavBarComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

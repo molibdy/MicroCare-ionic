@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
     "@ionic/angular": "^5.5.2",
+    "apexcharts": "^3.26.1",
     "ng-apexcharts": "^1.5.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

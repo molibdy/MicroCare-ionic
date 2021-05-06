@@ -6,8 +6,14 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
-import { IntroducirManualComponent } from '../componentes/introducir-manual/introducir-manual.component';
-import { FavoritosComponent } from '../componentes/favoritos/favoritos.component';
+import { BottonBurgerComponent } from '../componentes/botton-burger/botton-burger.component';
+import { VitaminChartComponent } from '../componentes/vitamin-chart/vitamin-chart.component';
+import { MineralChartComponent } from '../componentes/mineral-chart/mineral-chart.component';
+import { OmegasChartComponent } from '../componentes/omegas-chart/omegas-chart.component';
+import { AminoacidChartComponent } from '../componentes/aminoacid-chart/aminoacid-chart.component';
+import { UsuarioComponent } from '../componentes/usuario/usuario.component';
+import { GraficaOthersComponent } from '../componentes/grafica-others/grafica-others.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -15,9 +21,17 @@ import { FavoritosComponent } from '../componentes/favoritos/favoritos.component
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    NgApexchartsModule
   ],
   declarations: [HomePage,
-  NavBarComponent, FavoritosComponent,IntroducirManualComponent]
+  NavBarComponent,
+BottonBurgerComponent,
+VitaminChartComponent,
+MineralChartComponent,
+OmegasChartComponent,
+AminoacidChartComponent,
+UsuarioComponent,
+GraficaOthersComponent]
 })
 export class HomePageModule {}

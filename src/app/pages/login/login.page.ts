@@ -71,11 +71,7 @@ public dateString=`${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.d
       }else if(data.type == -1){
         console.log(data.message);
         console.log('error');
-
-// MANDAR MENSAJE DE USUARIO/PASSWORD INCORRECTOS
-
-
-          this.isNonRegisteredC = true 
+        this.isNonRegisteredC = true 
       }
       
     })

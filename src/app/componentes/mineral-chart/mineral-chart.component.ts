@@ -6,8 +6,13 @@ import {
   ApexChart,
   ApexFill,
   ChartComponent,
-  ApexStroke
+  ApexStroke,
+  
 } from "ng-apexcharts";
+import { Group } from 'src/app/models/group';
+import { Progress } from 'src/app/models/progress';
+import { MicronutrientesService } from 'src/app/shared/micronutrientes.service';
+import { ProgressService } from 'src/app/shared/progress.service';
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -26,89 +31,125 @@ export type ChartOptions = {
 export class MineralChartComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
-  constructor() {this.chartOptions = {
-    series: [75],         //DEPENDIENTE DE CLASE
-    chart: {
-      height: 190,
-      type: "radialBar",
-      toolbar: {
-        show: false
-      }
-    },
-    plotOptions: {
-      radialBar: {
-        startAngle: 0,
-        endAngle: 360,
-        hollow: {
-          margin: 0,
-          size: "65%",
-          background: "#fff",
-          image: undefined,
-          position: "front",
-          dropShadow: {
-            enabled: true,
-            top: 1,
-            left: 0,
-            blur: 4,
-            opacity: 0.24
-          }
-        },
-        track: {
-          background: "#fff",
-          strokeWidth: "67%",
-          margin: 0, // margin is in pixels
-          dropShadow: {
-            enabled: true,
-            top: 3,
-            left: 0,
-            blur: 4,
-            opacity: 0.35
-          }
-        },
+  public groupData:Group;
+  public groups:Group[];
+  public groupProgress:Progress
+  public totalProgress:Progress
+  public averagePercent:number;
+  constructor(public progressService:ProgressService,
+    public micronutrientService:MicronutrientesService) { 
+    // this.groups=JSON.parse(sessionStorage.getItem('groups'));
+    this.totalProgress=this.progressService.totalProgress
+    this.groups=this.micronutrientService.grupos
+    // this.totalProgress=JSON.parse(sessionStorage.getItem('totalProgress'));
+    this.groupProgress=new Progress(this.totalProgress.user_id,this.totalProgress.date,[])
+    this.groupData=new Group()
 
-        dataLabels: {
-          show: true,
-          name: {
-            offsetY: 0,
-            show: false,
-            color: " #667a92",
-            fontSize: "14px"
-            
+    // obtener datos del grupo concreto
+    for(let i=0;i<this.groups.length;i++){
+      console.log('group.name' + this.groups[i].name)
+      if(this.groups[i].name=='minerales'){
+        this.groupData=this.groups[i];
+        
+      }
+    }
+
+    //obtener progreso del grupo concreto
+    let sumPercent:number=0
+    for(let i=0; i<this.totalProgress.percents.length;i++){
+      if(this.totalProgress.percents[i].group_id==this.groupData.group_id){
+        this.groupProgress.percents.push(this.totalProgress.percents[i])
+        sumPercent+=this.totalProgress.percents[i].percent
+      }
+    }
+    this.averagePercent=sumPercent/this.groupProgress.percents.length
+
+    this.chartOptions = {
+      series: [this.averagePercent],         //DEPENDIENTE DE CLASE
+      chart: {
+        height: 190,
+        type: "radialBar",
+        toolbar: {
+          show: false
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: 0,
+          endAngle: 360,
+          hollow: {
+            margin: 0,
+            size: "65%",
+            background: "#fff",
+            image: undefined,
+            position: "front",
+            dropShadow: {
+              enabled: true,
+              top: 1,
+              left: 0,
+              blur: 4,
+              opacity: 0.69,
+              color:this.groupData.color
+            }
           },
-          value: {
-            formatter: function(val) {
-              return `${parseInt(val.toString(), 10).toString()}%`;
+          track: {
+            background: "#fff",
+            strokeWidth: "67%",
+            margin: 0, // margin is in pixels
+            dropShadow: {
+              enabled: true,
+              top: 3,
+              left: 0,
+              blur: 4,
+              opacity: 0.35
+            }
+          },
+
+          dataLabels: {
+            show: true,
+            name: {
+              offsetY: 0,
+              show: false,
+              color: " #667a92",
+              fontSize: "14px"
+              
             },
-            offsetY: 8,
-            color: " #667a92",
-            fontSize: "30px",
-            show: true
+            value: {
+              formatter: function(val) {
+                return `${parseInt(val.toString(), 10).toString()}%`;
+              },
+              offsetY: 8,
+              color: " #667a92",
+              fontFamily: 'dosis-bold',
+              fontSize: "30px",
+              show: true
+            }
           }
         }
-      }
-    },
-    fill: {
-      colors:["#ff687a"],   //DEPENDIENTE DE CLASE
-      type: "gradient",
-      gradient: {
-        shade: "dark",
-        type: "horizontal",
-        shadeIntensity: 0.5,
-        gradientToColors: ["#FF96A3"],    //DEPENDIENTE DE CLASE
-        inverseColors: false,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 100]
-      }
-    },
-    stroke: {
-      lineCap: "round"
-    },
-    labels: ["Aminoácidos"]     //DEPENDIENTE DE CLASE
-  };
-}
+      },
+      fill: {
+        colors:[this.groupData.color2],   //DEPENDIENTE DE CLASE
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "horizontal",
+          shadeIntensity: 0.5,
+          gradientToColors: [this.groupData.color],    //DEPENDIENTE DE CLASE
+          inverseColors: false,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      stroke: {
+        lineCap: "round"
+      },
+      labels: [this.groupData.name]     //DEPENDIENTE DE CLASE
+    };
+  }
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+    
+  }
 
 }

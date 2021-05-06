@@ -8,11 +8,14 @@
 
 <div class="col-center">
   <br>
-  <mat-icon class="iconSize colorBlue"  src="../../../assets/icon/logo.svg"></mat-icon>
+  <div>
+    <ion-icon src="../../../assets/icon/logo.svg" class="iconSize colorBlue"></ion-icon>
+  </div>
+  
   
   <div *ngIf="isNonRegisteredC">
       <div class="bordeEliminar textBlueSemi20  col-center marginBottom10">
-          <div class="paddingRespuesta marginTop10 marginBottom10" (click)="this.apiisNonRegisteredC = false">La contraseña o el nombre de usuario no son correctos <br></div>
+          <div class="paddingRespuesta marginTop10 marginBottom10" (click)="isNonRegisteredC = false">La contraseña o el nombre de usuario no son correctos <br></div>
       </div>
 
 

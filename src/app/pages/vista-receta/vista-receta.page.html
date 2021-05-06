@@ -29,7 +29,7 @@
             <div class="row-left">
                     <button [ngClass]="!showDatePicker || isDateSelected ? 'mybutton-blue-white' : 'mybutton-soft'" (click)="selectDate()">
                         <div class=" textButton" >
-                            <mat-icon class="iconoMedian"  [inline]='true'  svgIcon="calendario"></mat-icon> 
+                            <ion-icon src="../../../assets/icon/calendario.svg" class="iconoMedian"  [inline]='true'></ion-icon>
                             <div class="separador10" > </div> 
                             Planear 
                         </div> 
@@ -37,7 +37,8 @@
                     <div class="separador"></div>
                     <button [ngClass]="!showDatePicker || isDateSelected ? 'mybutton-blue' : 'mybutton-soft'" (click)="addRegistro()">
                         <div class=" textButton">
-                            <mat-icon class="iconoMedian"  [inline]='true'>done</mat-icon> 
+                            <ion-icon name="checkmark-outline" class="iconoMedian"  [inline]='true'></ion-icon>
+                            <!-- <ion-icon src="../../../assets/icon/calendario.svg" class="iconoMedian"  [inline]='true'></ion-icon> -->
                             <div class="separador10" > </div> 
                             <div>¡Consumida!</div> 
                         </div> 
@@ -50,8 +51,8 @@
         <!-- desplegable para elegir la fecha al clickar en PLANEAR -->
         <div class="datePicker-container" *ngIf="showDatePicker">
             <div class="hr"></div>
-    
-            <mat-icon class="iconSizeGray derecha" svgIcon='close' (click)="cerrarDatePicker()"></mat-icon>
+
+            <ion-icon src="../../../assets/icon/close.svg" class="iconSizeGray derecha"  (click)="cerrarDatePicker()"></ion-icon>
         
             <div class="row-center">
                 <mat-form-field appearance="none" >
@@ -143,7 +144,9 @@
                    
                     <div class="separador100"> </div>
                     <div class="col-center relative">
-                        <div> <mat-icon class="serves iconColor"  svgIcon="serves"></mat-icon></div>
+                        <div> 
+                            <ion-icon src="../../../assets/icon/serves.svg" class="serves iconColor"></ion-icon>
+                        </div>
                     <div class = "numeroServes">{{selectedReceta.serves}}</div>
                     </div>
                 </div>

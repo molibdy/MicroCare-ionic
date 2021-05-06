@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { BottonBurgerComponent } from '../componentes/botton-burger/botton-burger.component';
 import { VitaminChartComponent } from '../componentes/vitamin-chart/vitamin-chart.component';
 import { MineralChartComponent } from '../componentes/mineral-chart/mineral-chart.component';
@@ -25,7 +24,6 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     NgApexchartsModule
   ],
   declarations: [HomePage,
-  NavBarComponent,
 BottonBurgerComponent,
 VitaminChartComponent,
 MineralChartComponent,

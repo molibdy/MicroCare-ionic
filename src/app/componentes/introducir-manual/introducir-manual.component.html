@@ -17,40 +17,32 @@
               <!-- Ingrediente con su input -->
               
               
-                  <mat-form-field  class=" inputGray" appearance="none">
-                    <div class="  col-left  colorGray">
-                        <div class="textBlueSemi20 marginBottom6 marginleft6">Ingrediente</div>
-
-                        <input type="text"
-                                placeholder="Escribe aquí"
-                                aria-label="Number"
-                                matInput
-                                [formControl]="myControl"
-                                [matAutocomplete]="auto"
-                                 #ingrediente
-                                 class="inputIngrediente">
-                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                              {{option}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </div>
-                  </mat-form-field>
+                  
+                 
+                    <div class="colorGray inputGray paddingLikeMat marginRight10">
+                      <div class=" textBlueSemi20 marginBottom6 marginleft6">Ingredientes</div>
+                      <div class="row-left inputIngrediente marginRight10">
+                        <input type="text"  list="codes" [(ngModel)]="codeValue" (change)="saveCode($event)">
+                        <datalist id="codes">
+                          <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+                        </datalist>        
+                      </div>
+                  </div>
             
                
               
                 <!-- Cantidad con su input -->
-                <div class="colorGray inputGray paddingLikeMat">
+                <div class="colorGray inputGray paddingLikeMat " >
                     <div class=" textBlueSemi20 marginBottom6 marginleft6">Cantidad</div>
-                    <div class="row-left inputCantidad ">
+                    <div class="row-left inputCantidad " >
                         <input type="number"  #peso>
                         <div class=" text20Gray"  >g</div>
                     </div>
                 </div>
 
                 <!-- <div class="row-right" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber)' > -->
-                  <button class="boton-anadir marginleft10" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber); peso.value=""; ingrediente.value=""'>
-                    <ion-icon class=" iconSizeGrayAdd  " src="../../../assets/icon/close.svg" ></ion-icon>
+                  <button class="boton-anadir marginleft10" (click)='crearIngrediente(codeValue, peso.valueAsNumber); peso.value=""; codeValue=""'>
+                    <ion-icon class=" iconSizeGrayAdd  " src="../../../assets/icon/add.svg" ></ion-icon>
                   </button>
               
 

@@ -205,20 +205,37 @@
   margin-left: -10px;
 }
 
+
 .inputIngrediente{
   text-decoration: none;
   height: 30px;
-  width: 147px;
+  width: 180px;
   border-radius: 20px;
   box-shadow: 1px 3px 8px rgba(84, 0, 0, 0.1);
   padding-left: 10px;
   color: #667a92;
   outline: none;
   border: none;
-  font-size: 18px;
-  font-family: dosis-medium ;
+  background-color: white;
+
+  /* font-size: 18px;
+  font-family: dosis-medium ; */
 }
 
+.inputIngrediente input{
+  text-decoration: none;
+  height: 28px;
+  width: 160px;
+  border-radius: 20px;
+  color: #667a92;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-family: dosis-medium ;
+  // margin-right: 2px;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
 .inputCantidad{
   text-decoration: none;
   height: 30px;
@@ -229,6 +246,7 @@
   color: #667a92;
   outline: none;
   border: none;
+  background-color: white;
   /* font-size: 18px;
   font-family: dosis-medium ; */
 }

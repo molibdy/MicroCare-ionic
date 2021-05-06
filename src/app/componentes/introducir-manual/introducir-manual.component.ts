@@ -24,7 +24,7 @@ export class IntroducirManualComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Pollo', 'Patata', 'Zanahoria','Cebolla'];
   filteredOptions: Observable<string[]>;
-  
+  public inputIngrediente:string;
   public ingestas:object[] = []
   public pasos:string = "";
   public receta:object
@@ -38,18 +38,19 @@ export class IntroducirManualComponent implements OnInit {
   public showGuardarFavorito:boolean=false;
   constructor(private ingestaService:IngestaService,   
               private ingredientService:IngredientesService,
-              private progressService:ProgressService) 
+              private progressService:ProgressService, 
+              ) 
     {
-
-    this.options = []
-    for(let i =0;i<this.ingredientService.Ingredientes.length;i++){
-      this.options.push(this.ingredientService.Ingredientes[i].ingredient_name)
-    }
+    this.inputIngrediente = ""
+    this.options = ["hey","g","hd"]
+    // for(let i =0;i<this.ingredientService.Ingredientes.length;i++){
+    //   this.options.push(this.ingredientService.Ingredientes[i].ingredient_name)
+    // }
     this.options.sort()
     console.log(this.options)
 /*     this.getIngredientes()
  */   }
-  
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
     startWith(''),
@@ -63,6 +64,12 @@ export class IntroducirManualComponent implements OnInit {
        this.options.push(this.ingredientService.Ingredientes[i].ingredient_name)
     }
   
+  }
+
+  public saveCode(e): void {
+    let name = e.target.value;
+    let list = this.options.filter(x => x === name)[0];
+    console.log(list);
   }
 
   crearIngrediente(ingrediente : string, peso:number)

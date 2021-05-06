@@ -18,11 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/ingesta-menu/ingesta-menu.module').then( m => m.IngestaMenuPageModule)
   },
   {
-    path: 'burger-menu',
+    path: 'menu',
     loadChildren: () => import('./pages/burger-menu/burger-menu.module').then( m => m.BurgerMenuPageModule)
   },
   {
-    path: 'buscador-recetas',
+    path: 'buscar-receta',
     loadChildren: () => import('./pages/buscador-recetas/buscador-recetas.module').then( m => m.BuscadorRecetasPageModule)
   },
   {
@@ -43,7 +43,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'calendario',
+    path: 'dia',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
   {

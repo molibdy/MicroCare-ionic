@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { VistaRecetaPageRoutingModule } from './vista-receta-routing.module';
 
 import { VistaRecetaPage } from './vista-receta.page';
+import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { VistaRecetaPage } from './vista-receta.page';
     IonicModule,
     VistaRecetaPageRoutingModule
   ],
-  declarations: [VistaRecetaPage]
+  declarations: [VistaRecetaPage, BottonCruzComponent]
 })
 export class VistaRecetaPageModule {}

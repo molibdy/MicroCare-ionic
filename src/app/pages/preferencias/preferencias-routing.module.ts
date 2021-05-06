@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PreferenciasPage } from './preferencias.page';
+// import { PreferenciasPage } from './preferencias.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PreferenciasPage
-  }
+  // {
+  //   path: '',
+  //   component: PreferenciasPage
+  // }
 ];
 
 @NgModule({
@@ -15,3 +15,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class PreferenciasPageRoutingModule {}
+// 

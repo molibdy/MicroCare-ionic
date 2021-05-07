@@ -50,8 +50,8 @@
 
 
 .chip-micro1{
-    width:30px;
-    height: 30px;
+    width:25px;
+    height: 25px;
     font-size:9px;
     font-weight: 500;
     background-color:white;
@@ -64,14 +64,15 @@
     text-align: center;
     justify-content: center;
     color: #667a92;
+   
     /* margin-top: -10%;
     margin-left: 70%; */
 }
 
 
 .chip-micro2{
-    width: 30px;
-    height: 30px;
+    width:25px;
+    height: 25px;
     font-size:9px;
     font-weight: 500;
     background-color:white;
@@ -86,27 +87,30 @@
     justify-content: center;
     color: #667a92;
     /* margin-top: -10%; */
-    /* margin-left: 82%; */
+    margin-left: 10px; 
 }
 
 
 .nombre-receta{
     width: 170px;
     height: 40px;
-    font-size:15px;
+    font-size:17px;
     font-weight: 500;
     color: #667a92;
     margin-top: 5px;
     text-align: left;
+    align-items: center;
+    border: black;
 }
 
 .wrapper{
-    max-height: 250px;
+    height: 250px;
     border: 10% solid white;
     display: flex;
     overflow-x: auto;
     overflow-y:hidden;
     position: relative;
+
 }
 
 .wrapper::-webkit-scrollbar{
@@ -126,6 +130,9 @@
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 9px;
+    // height: inherit;
+    background-color: white;
+    overflow-x: hidden;
 }
 
 .gray{

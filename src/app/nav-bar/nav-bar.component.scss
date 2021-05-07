@@ -25,8 +25,9 @@
     /* font-size: 10px; */
     margin-bottom: 9px;
     cursor: pointer;
+    
 }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons { font-size: 35px;}
 
 .barraIconos
 {
@@ -44,13 +45,14 @@
 }
 .iconoNavBar
 {
-    height: 42px;
+    // height: 42px;
     padding-top: 15px;
 }
 
 .anadirNavbar
 {
-    height: 156px;
+    // height: 156px;
+    font-size: 156px;
     overflow: visible;
     margin-bottom: 15px;
     cursor: pointer;
@@ -88,4 +90,12 @@
     align-items: center;    /* alinea elementos horizontalmente en el centro de la fila */
     /* justify-items: center; */
     justify-content: space-evenly;   /* alinea elementos verticalmente en el centro */
+}
+
+.izq{
+    margin-right: 22px;
+}
+
+.dcha{
+    margin-left: 22px;
 }

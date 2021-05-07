@@ -31,7 +31,7 @@ export class HomePage {
         console.log(this.micronutrientService.selectedGroup)
       }
     }
-    this.router.navigate(['./home/grupo'])
+    this.router.navigate(['/ficha-grupo'])
   }
 
 

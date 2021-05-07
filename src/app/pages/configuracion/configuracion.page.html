@@ -5,7 +5,9 @@
 </ion-header> -->
 
 <ion-content>
-  <app-botton-cruz routerLink="../"></app-botton-cruz>
+    <div class="header">
+        <app-botton-cruz routerLink="/../menu"></app-botton-cruz>
+    </div>
   <div class="row-center">
       <ion-icon class="blue left-padding" true src="../../../assets/icon/settings.svg"></ion-icon>
       <div class="text">Configuración</div>
@@ -70,11 +72,16 @@
       
        <div class="br"></div>
        <div class="br"></div>
-  
-      <div class="col-center">
-          <button class=" button-blue" (click)="guardarCambios()">Actualizar</button>
-      </div>
-      
   </div>
-  <div class="footer"></div>
+
+  <div class="br"></div>
+  <div class="br"></div>
+  
+  <div class="col-center">
+    <button class=" button-blue" (click)="guardarCambios()">Actualizar</button>
+</div>
+
+
+<div class="footer"></div> 
+ <div class="footer"></div>
 </ion-content>

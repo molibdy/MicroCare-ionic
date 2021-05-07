@@ -22,9 +22,9 @@
                     <div class="colorGray inputGray paddingLikeMat marginRight10">
                       <div class=" textBlueSemi20 marginBottom6 marginleft6">Ingredientes</div>
                       <div class="row-left inputIngrediente marginRight10">
-                        <input type="text"  list="codes" [(ngModel)]="codeValue" (change)="saveCode($event)">
+                        <input type="text"  list="codes" [(ngModel)]="inputIngrediente" (change)="saveCode($event)">
                         <datalist id="codes">
-                          <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+                          <option *ngFor="let option of options"  >{{option}}</option>
                         </datalist>        
                       </div>
                   </div>
@@ -41,7 +41,7 @@
                 </div>
 
                 <!-- <div class="row-right" (click)='crearIngrediente(ingrediente.value, peso.valueAsNumber)' > -->
-                  <button class="boton-anadir marginleft10" (click)='crearIngrediente(codeValue, peso.valueAsNumber); peso.value=""; codeValue=""'>
+                  <button class="boton-anadir marginleft10" (click)='crearIngrediente(peso.valueAsNumber); peso.value=""; inputIngrediente=""'>
                     <ion-icon class=" iconSizeGrayAdd  " src="../../../assets/icon/add.svg" ></ion-icon>
                   </button>
               

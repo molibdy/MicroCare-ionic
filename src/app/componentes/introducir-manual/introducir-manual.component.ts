@@ -8,6 +8,8 @@ import { IngestaService } from 'src/app/shared/ingesta.service';
 import { IngredientesService } from 'src/app/shared/ingredientes.service';
 import { Progress } from 'src/app/models/progress';
 import { ProgressService } from 'src/app/shared/progress.service';
+import { MicroScoreComponent} from 'src/app/componentes/micro-score/micro-score.component';
+
 
 
 
@@ -22,7 +24,7 @@ export class IntroducirManualComponent implements OnInit {
   ///// formulario autocompletado
 
   myControl = new FormControl();
-  options: string[] = ['Pollo', 'Patata', 'Zanahoria','Cebolla'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
   public inputIngrediente:string;
   public ingestas:object[] = []
@@ -42,21 +44,21 @@ export class IntroducirManualComponent implements OnInit {
               ) 
     {
     this.inputIngrediente = ""
-    this.options = ["hey","g","hd"]
-    // for(let i =0;i<this.ingredientService.Ingredientes.length;i++){
-    //   this.options.push(this.ingredientService.Ingredientes[i].ingredient_name)
-    // }
-    this.options.sort()
+    this.options = []
+   for(let i =0;i<this.ingredientService.Ingredientes.length;i++){
+      this.options.push(this.ingredientService.Ingredientes[i].ingredient_name)
+     }
+    // this.options.sort()
     console.log(this.options)
 /*     this.getIngredientes()
  */   }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-    startWith(''),
-    map(value => this._filter(value))
-    );
-    console.log(this.filteredOptions);
+    // this.filteredOptions = this.myControl.valueChanges.pipe(
+    // startWith(''),
+    // map(value => this._filter(value))
+    // );
+    // console.log(this.filteredOptions);
 
   }
   getIngredientes(){
@@ -72,13 +74,13 @@ export class IntroducirManualComponent implements OnInit {
     console.log(list);
   }
 
-  crearIngrediente(ingrediente : string, peso:number)
+  crearIngrediente(peso:number)
   {
-    if(this.options.includes(ingrediente)  && peso > 0){
-      console.log(ingrediente);
+    if(this.options.includes(this.inputIngrediente)  && peso > 0){
+      console.log(this.inputIngrediente);
       console.log("pasa");
       for(let i=0;i<this.ingredientService.Ingredientes.length;i++){
-          if(this.ingredientService.Ingredientes[i].ingredient_name == ingrediente){
+          if(this.ingredientService.Ingredientes[i].ingredient_name == this.inputIngrediente){
             this.listaIngredientes.push({ingrediente: this.ingredientService.Ingredientes[i], peso : peso})
           }
       }

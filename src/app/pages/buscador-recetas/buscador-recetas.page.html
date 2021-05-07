@@ -2,107 +2,149 @@
   <ion-toolbar>
     <ion-title>buscador-recetas</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
 
-</ion-content> -->
+    <app-botton-burger></app-botton-burger>
 
-<app-botton-burger></app-botton-burger>
+    <div class="text row-left">
+        Recetas
+    </div>
+    <div class="br"></div>
 
-<div class="text row-left">
-    Recetas
-</div>
-<div class="br"></div>
+    <div class="col-center"> 
+        <div class="input left-padding">                                         
+            <input type="text" placeholder="buscar" #buscar4>
+            
+            <button class="mas" (click)="buscar(buscar4.value)">
+                <ion-icon class="colorDark"  src="../../../assets/icon/search.svg"></ion-icon>
+            </button>
+        </div>
+    
+        <div class="custom-hr"></div>
 
-<app-recetas></app-recetas>
-
-<div class="br"></div>
-
-<div>
-    <div class="tarjeta">
-        <div class="br"></div>
-        <div class="row-left">
-            <div class="text ">
-            Para ti
+        <div class= "br"></div>                    
+        
+        <!--                    /////// elemento micronutriente -->
+        <div *ngIf="mySwitch && (inputSearch.length > 0)">   
+            <div class="iphoneCard"> 
+                <div *ngFor="let receta of recetasBuscar; let i = index" (click)= rutaReceta(i)>
+                        <div class=" widthMenu100 padding-top menu-item-busqueda textBlueSemi20 row-center"  >
+                            <!-- <p class="text">{{receta.preferencia1}}</p> 
+                            <p class="text">{{receta.preferencia2}}</p> 
+                            <p class="text">{{receta.chip1}}</p> 
+                            <p class="text">{{receta.chip1}}</p>  -->
+                            <div class="fotoBuscar">
+                                <img [src]="receta.photo_url">
+                            </div>
+                            <div class="col-right titulo col">
+                                {{receta.recipe_name}}
+                            </div>
+                        </div>                                                       
+                    <div class="br"></div>
+                    <div class="custom-hr"></div>
+                </div>
             </div>
         </div>
-        <div class="br"></div>
+    </div>
 
-        <div  class="wrapper">
-            <div *ngFor="let receta of listaParaTi" class="item" [routerLink]="receta">
-                <div class="row-left"> 
-                    <div class="chip1">
-                        {{receta.preferencia1}}
+    <div class="br"></div>
+
+    <div>
+        <div class="tarjeta">
+            <div class="br"></div>
+            <div class="row-left">
+                <div class="text ">
+                Para ti
+                </div>
+            </div>
+            <div class="br"></div>
+
+            
+            <div  class="wrapper">
+                <div *ngFor="let receta of recetaService.recetasParaTi; let i=index" class="item" (click)="verRecetaParaTi(i)">
+                    <div class="row-left"> 
+                        <div class="chip1" *ngIf="receta.dietas[0]">
+                            {{receta.dietas[0]}}
+                        </div>
+                        <div class="chip2" *ngIf="receta.dietas.length>1">
+                            {{receta.dietas[1]}}
+                        </div>
                     </div>
-                    <div class="chip2">
-                        {{receta.preferencia2}}
+                    <div class="foto">
+                        <img [src]="receta.photo_url">
+                    </div>
+                    <div class="row-center">
+                        <div class="row-center">
+                            <div class="nombre-receta">
+                                {{receta.recipe_name}}
+                            </div>
+                        </div>
+                        <div class="row-center">
+                            <div class="chip-micro1" [style.background-color]="receta.microscore[0].color">
+                                {{receta.microscore[0].acronym}}
+                            </div>
+                            <div class="chip-micro2" [style.background-color]="receta.microscore[1].color">
+                                {{receta.microscore[1].acronym}}
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="mensajito" *ngIf="recetaService.recetasParaTi.length==0">
+                    Aquí aparecerán las 6 recetas que mejor se adapten a tus preferencias y a los micronutrientes que más te faltaron ayer
+                </div>
+            </div>
+        </div>
+            <div class="br"></div>
+            <div class="tarjeta">
+                <div class="br"></div>
+                <div class="row-left">
+                    <div class="text ">
+                    Nuevas en la app
+                    </div>
+                </div>
+                <div class="br"></div>
+
+        <div class="wrapper">
+            <div *ngFor="let receta of recetaService.recetas; let i=index" class="item" (click)="verRecetaNuevas(i)">
+                <div class="row-left"> 
+                    <div class="chip1" *ngIf="receta.dietas[0]">
+                        {{receta.dietas[0]}}
+                    </div>
+                    <div class="chip2" *ngIf="receta.dietas.length>1">
+                        {{receta.dietas[1]}}
                     </div>
                 </div>
                 <div class="foto">
-                    <img [src]="receta.foto">
+                    <img [src]="receta.photo_url">
                 </div>
                 <div class="row-center">
                     <div class="row-center">
                         <div class="nombre-receta">
-                            {{receta.nombre}}
+                            {{receta.recipe_name}}
                         </div>
                     </div>
                     <div class="row-center">
-                        <div class="chip-micro1">
-                            {{receta.chip1}}
+                        <div class="chip-micro1" [style.background-color]="receta.microscore[0].color">
+                            {{receta.microscore[0].acronym}}
                         </div>
-                        <div class="chip-micro2">
-                            {{receta.chip2}}
+                        <div class="chip-micro2" [style.background-color]="receta.microscore[1].color">
+                            {{receta.microscore[1].acronym}}
                         </div> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="br"></div>
-        <div class="tarjeta">
-            <div class="br"></div>
-            <div class="row-left">
-                <div class="text ">
-                Nuevas en la app
-                </div>
-            </div>
-            <div class="br"></div>
 
-    <div class="wrapper">
-        <div *ngFor="let receta of listaNuevas" class="item" routerLink="/receta">
-            <div class="row-left"> 
-                <div class="chip1">
-                    {{receta.preferencia1}}
-                </div>
-                <div class="chip2">
-                    {{receta.preferencia2}}
-                </div>
-            </div>
-            <div class="foto">
-                <img [src]="receta.foto"/>
-            </div>
-            <div class="row-center">
-                <div class="row-center">
-                    <div class="nombre-receta">
-                        {{receta.nombre}}
-                    </div>
-                </div>
-                <div class="row-center">
-                    <div class="chip-micro1">
-                        {{receta.chip1}}
-                    </div>
-                    <div class="chip-micro2">
-                        {{receta.chip2}}
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="footer"></div>
+    <div class="footer"></div>
 
-  <div class="footer"></div>
-  <div class="footer"></div>
+
+
+
+
+
 
 

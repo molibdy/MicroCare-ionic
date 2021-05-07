@@ -8,14 +8,19 @@ import { VistaRecetaPageRoutingModule } from './vista-receta-routing.module';
 
 import { VistaRecetaPage } from './vista-receta.page';
 import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
+import { GramsPipe } from 'src/app/pipes/grams.pipe';
+
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { MicroScoreComponent } from 'src/app/componentes/micro-score/micro-score.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VistaRecetaPageRoutingModule
+    VistaRecetaPageRoutingModule,
+    NgApexchartsModule
   ],
-  declarations: [VistaRecetaPage, BottonCruzComponent]
+  declarations: [VistaRecetaPage, BottonCruzComponent, GramsPipe, MicroScoreComponent]
 })
 export class VistaRecetaPageModule {}

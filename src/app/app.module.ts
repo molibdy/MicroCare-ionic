@@ -15,7 +15,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
-  declarations: [AppComponent, GramsPipe, GramosPipe, NavBarComponent],
+  declarations: [AppComponent, NavBarComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

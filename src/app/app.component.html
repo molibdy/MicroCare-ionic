@@ -1,5 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
-  <app-nav-bar></app-nav-bar>
+  <div *ngIf="loadingService.showNavBar">
+    <app-nav-bar></app-nav-bar>
+    </div>
 </ion-app>
 

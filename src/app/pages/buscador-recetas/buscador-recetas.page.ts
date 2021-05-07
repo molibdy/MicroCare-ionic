@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {Recipes} from 'src/app/models/recipes';
-import {RecetasService} from 'src/app/shared/recetas.service';
+
+import { Component, NgModule, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Recipes } from 'src/app/models/recipes';
 import { MicronutrientesService } from 'src/app/shared/micronutrientes.service';
-import { Router } from '@angular/router';
+import { RecetasService } from 'src/app/shared/recetas.service';
+
+
+
 
 @Component({
   selector: 'app-buscador-recetas',
@@ -10,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./buscador-recetas.page.scss'],
 })
 export class BuscadorRecetasPage implements OnInit {
+ 
 
   public date=new Date();
   public dateString=`${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
@@ -30,9 +35,11 @@ export class BuscadorRecetasPage implements OnInit {
     public recetaService:RecetasService,
     private router:Router,
     public micronutrienteServicio:MicronutrientesService, 
+
   ) {
-  
     this.router=router
+
+    
     // this.listaNuevas=this.recetaService.recetas ///habrá que cambiarlo por this.recetaService.recetasNuevas y añadir un campo a la tabla que sea fecha de creación
     this.recetaService.recetas
 
@@ -49,82 +56,84 @@ export class BuscadorRecetasPage implements OnInit {
         } 
       }
     }) 
-
    }
 
-   
+
+
+
+
    verRecetaParaTi(i:number){
-    this.recetaService.selectedReceta=this.recetaService.recetasParaTi[i]
-    this.router.navigate(['../buscar-receta/receta']);
-  }
+     this.recetaService.selectedReceta=this.recetaService.recetasParaTi[i]
+     this.router.navigate(['/vista-receta']);
+   }
 
 
-  verRecetaNuevas(i:number){
-   this.recetaService.selectedReceta=this.recetaService.recetas[i]
-   this.router.navigate(['../buscar-receta/receta']);
-  }
+   verRecetaNuevas(i:number){
+    this.recetaService.selectedReceta=this.recetaService.recetas[i]
+    this.router.navigate(['/vista-receta']);
+   }
 
- 
+  
 
-   
+    
 /////////////////////nueva parte
 
 buscar(search){
 
- console.log(this.inputSearch.length);
+  console.log(this.inputSearch.length);
+  
+  this.recetasBuscar=[]
+  this.inputSearch = search
  
- this.recetasBuscar=[]
- this.inputSearch = search
+  let input = this.inputSearch.toUpperCase();
+  console.log(input);
 
- let input = this.inputSearch.toUpperCase();
- console.log(input);
+  console.log(this.inputSearch.length);
+  this.mySwitch = true
+  
+  for(let i=0; i < this.recetaService.recetas.length; i++){
+    if(this.recetaService.recetas[i].recipe_name.toUpperCase().indexOf(input) > -1){
+      this.recetasBuscar.push(this.recetaService.recetas[i])
+    }
+  }  
 
- console.log(this.inputSearch.length);
- this.mySwitch = true
- 
- for(let i=0; i < this.recetaService.recetas.length; i++){
-   if(this.recetaService.recetas[i].recipe_name.toUpperCase().indexOf(input) > -1){
-     this.recetasBuscar.push(this.recetaService.recetas[i])
-   }
- }  
-
- 
+  
 
 }
 
 
 
 
-  rutaReceta(i){
-   //  this.recetaService.selectedReceta_id=recipe_id  ESTO DEBERÍA SER OBJETO RECETA?
-   this.micronutrienteServicio.getMicrosReceta(this.recetasBuscar[i].recipe_id).subscribe((micronutrientes:any)=>{
-    if(micronutrientes.type==1 || micronutrientes.type==-1){
-      this.micronutrienteServicio.microsReceta=micronutrientes.message;
-    }
-    this.recetaService.selectedReceta = this.recetasBuscar[i]
-    // this.micronutrientesBuscar[i] = this.micronutrientesServicio.linkMicro()
-    this.router.navigate(['buscar-receta/receta']);
-    console.log(this.recetaService.selectedReceta.photo_url)
-   })
-  }
-  
-
- ngOnInit(): void {
-   // console.log('cargando buscador')
-   // this.recetaService.getRecetasParaTi(JSON.parse(sessionStorage.getItem('userSession')).user_id)
-   // .subscribe((recetas:any)=>{
-   //   console.log(recetas.message)
-   //   for(let i=0;i<this.recetas.length;i++){
-   //     if(!recetas.message.includes(this.recetas[i].recipe_id)){
-   //       this.listaParaTi.push(this.recetas[i])
-   //    } 
-   //   }
-
-   // })
-
-
+   rutaReceta(i){
+    //  this.recetaService.selectedReceta_id=recipe_id  ESTO DEBERÍA SER OBJETO RECETA?
+    this.micronutrienteServicio.getMicrosReceta(this.recetasBuscar[i].recipe_id).subscribe((micronutrientes:any)=>{
+     if(micronutrientes.type==1 || micronutrientes.type==-1){
+       this.micronutrienteServicio.microsReceta=micronutrientes.message;
+     }
+     this.recetaService.selectedReceta = this.recetasBuscar[i]
+     // this.micronutrientesBuscar[i] = this.micronutrientesServicio.linkMicro()
+     this.router.navigate(['/vista-receta']);
+     console.log(this.recetaService.selectedReceta.photo_url)
+    })
+   }
    
 
- }
+  ngOnInit(): void {
+    // console.log('cargando buscador')
+    // this.recetaService.getRecetasParaTi(JSON.parse(sessionStorage.getItem('userSession')).user_id)
+    // .subscribe((recetas:any)=>{
+    //   console.log(recetas.message)
+    //   for(let i=0;i<this.recetas.length;i++){
+    //     if(!recetas.message.includes(this.recetas[i].recipe_id)){
+    //       this.listaParaTi.push(this.recetas[i])
+    //    } 
+    //   }
+
+    // })
+
+
+    
+
+  }
 
 }

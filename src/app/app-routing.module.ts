@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'ficha-micro',
     loadChildren: () => import('./pages/ficha-micro/ficha-micro.module').then( m => m.FichaMicroPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
 ];
 
 

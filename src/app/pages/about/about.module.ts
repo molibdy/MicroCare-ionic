@@ -8,6 +8,8 @@ import { AboutPageRoutingModule } from './about-routing.module';
 
 import { AboutPage } from './about.page';
 
+import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { AboutPage } from './about.page';
     IonicModule,
     AboutPageRoutingModule
   ],
-  declarations: [AboutPage]
+  declarations: [AboutPage, BottonCruzComponent]
 })
 export class AboutPageModule {}

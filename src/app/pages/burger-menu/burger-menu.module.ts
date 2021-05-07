@@ -8,7 +8,6 @@ import { BurgerMenuPageRoutingModule } from './burger-menu-routing.module';
 
 import { BurgerMenuPage } from './burger-menu.page';
 import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
-import { BarraBuscadorComponent } from 'src/app/componentes/barra-buscador/barra-buscador.component';
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import { BarraBuscadorComponent } from 'src/app/componentes/barra-buscador/barra
     IonicModule,
     BurgerMenuPageRoutingModule
   ],
-  declarations: [BurgerMenuPage, BottonCruzComponent,BarraBuscadorComponent]
+  declarations: [BurgerMenuPage, BottonCruzComponent]
 })
 export class BurgerMenuPageModule {}

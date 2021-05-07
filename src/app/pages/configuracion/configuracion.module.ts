@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ConfiguracionPageRoutingModule } from './configuracion-routing.module';
 
 import { ConfiguracionPage } from './configuracion.page';
+import { BottonCruzComponent } from 'src/app/componentes/botton-cruz/botton-cruz.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ConfiguracionPage } from './configuracion.page';
     IonicModule,
     ConfiguracionPageRoutingModule
   ],
-  declarations: [ConfiguracionPage]
+  declarations: [ConfiguracionPage,  BottonCruzComponent]
 })
 export class ConfiguracionPageModule {}

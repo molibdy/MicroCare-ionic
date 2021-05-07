@@ -2,13 +2,13 @@
     <app-botton-cruz routerLink="../home"></app-botton-cruz>
 </div> -->
 
+<ion-content>
 <div class="col-center">
   <div class="header">
       <app-botton-cruz (click)="activaNavBar('/home')"></app-botton-cruz>
       
   </div>
   <div class="row-left text">Menu</div>
-  <app-barra-buscador></app-barra-buscador>
   
   <div class="col-center 100 iphoneCard">
       <!-- <app-barra-buscador></app-barra-buscador> -->
@@ -156,9 +156,11 @@
       <div class="logout-container">
           <div (click)="logOut()">Log out</div>
       </div>
-
   </div>
 </div>
+<div class="footer"></div>
 <!-- 
 <div class="footer"></div>
        -->
+
+</ion-content>

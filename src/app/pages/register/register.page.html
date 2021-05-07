@@ -1,0 +1,63 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="col-center">
+    <br>
+    <ion-img src="assets/icon/logo.svg" alt="" class="iconSize colorBlue"></ion-img>
+    <div *ngIf="usuarioExistente">
+        <div class="bordeEliminar textBlueSemi20  col-center marginBottom10">
+            <div class="paddingRespuesta marginTop10 marginBottom10" (click)="usuarioExistente = false">{{respuestaNegativa}}, prueba con otro username <br></div>
+        </div>
+
+
+    </div>
+    <div *ngIf="!cuentaCreada">
+        <form [formGroup]="myForm">
+        
+                <div class="input">
+                    <!-- <input type="text" class="form-control" formControlName="usuario" placeholder="Nombre de usuario"
+                    [ngClass]="{'is-invalid': !myForm.get('usuario').valid}"> -->
+                    <input type="text"  class="form-control"  formControlName="username" placeholder="Nombre de usuario">
+                </div>  
+                <!-- <div *ngIf="!myForm.get('usuario').valid" class="invalid-feedback">
+                    El usuario es necesario
+                </div> -->
+        <br>
+        <div class="input">
+            <input type="text"  class="form-control" formControlName="email"  placeholder="E-mail">
+        </div>
+        <br>
+        <div class="input">
+            <input placeholder="Contraseña" type="password"  class="form-control" formControlName="password" >
+        </div>
+        <br>
+        <br>
+        
+            <button class="button-blue" (click)="registrarUsuario()">crear cuenta</button>
+             
+        <br>
+        <br>
+        <div class="col-center">
+            <div class="hr"></div>
+            </div>
+        <br>
+        <br>
+        <div class="row-center">
+            <p class="text textBlueRegular22">Ya tengo cuenta, &nbsp; <span class="link" routerLink="/../login"> Entrar</span> </p>
+        </div>
+        </form>
+    </div>
+    <div *ngIf="cuentaCreada">
+        <div class="bordeAnadir textBlueSemi20  col-center ">
+            <div class="paddingRespuesta marginTop22 marginBottom22">{{respuestaPositiva}} <br></div>
+        </div>
+        <div class=" button-blue marginTop22" routerLink="/../login"> Logueate con tu cuenta</div>
+
+
+    </div>
+</div>
+</ion-content>

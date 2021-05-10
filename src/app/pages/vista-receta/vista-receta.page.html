@@ -56,26 +56,31 @@
             <ion-icon src="../../../assets/icon/close.svg" class="iconSizeGray derecha"  (click)="cerrarDatePicker()"></ion-icon>
         
             <div class="row-center">
-                <!-- <mat-form-field appearance="none" >
+
+               
                     <div class="datePicker">
                         <div class="row-center dateInput">
                             <div>
-                            <mat-label class="textGraySemi16">¿Para qué día?</mat-label>
-                            <input matInput #dateInput [matDatepicker]="picker">
+                                <ion-item>
+                                    <ion-label  position="floating">¿Para qué día?</ion-label>
+                                    <ion-datetime #dateInput displayFormat="DD/MM/YYYY" min="2021-03-01" ></ion-datetime>
+                                </ion-item>
+                                <!-- <mat-label class="textGraySemi16">¿Para qué día?</mat-label>
+                                <input matInput #dateInput [matDatepicker]="picker"> -->
                             </div>
-                        <mat-datepicker-toggle matSuffix [for]="picker">
+                        <!-- <mat-datepicker-toggle matSuffix [for]="picker">
                             <mat-icon class="iconoGrande" matDatepickerToggleIcon [inline]='true'  svgIcon="calendario"></mat-icon>
                         </mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker></mat-datepicker> -->
                         </div>
         
                         <div class="separador20"> </div> 
         
-                    <button class="mybutton-blue-white" (click)="addToDay(dateInput)">
-                        Añadir al plan
-                    </button>
+                        <button class="mybutton-blue-white" (click)="addToDay(dateInput.value)">
+                            Añadir al plan
+                        </button>
                     </div>
-                </mat-form-field> -->
+               
             </div>
         
         </div>

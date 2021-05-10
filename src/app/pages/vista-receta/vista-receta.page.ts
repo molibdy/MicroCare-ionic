@@ -111,8 +111,10 @@ export class VistaRecetaPage implements OnInit {
       console.log(detalles)
       this.selectedReceta.alergenos=[];
       for(let i=0; i<detalles.message.length;i++){
-        if(!this.selectedReceta.alergenos.includes(detalles.message[i].allergen_name)){
-          this.selectedReceta.alergenos.push(detalles.message[i].allergen_name)
+        if(detalles.message[i].allergen_name!=null){
+          if(!this.selectedReceta.alergenos.includes(detalles.message[i].allergen_name)){
+            this.selectedReceta.alergenos.push(detalles.message[i].allergen_name)
+          }
         }
       }
       console.log(this.selectedReceta.alergenos)
@@ -120,14 +122,15 @@ export class VistaRecetaPage implements OnInit {
   }
   
 
-  public addToDay(date:HTMLInputElement){
-    if(date.value.length>0){
-      this.selectedDate=date.value
+  public addToDay(date:string){
+    if(date.length>0){
+      let cleanDate=date.split('T')
+      this.selectedDate=cleanDate[0]
       console.log(this.selectedDate)
      
       //Añade el id de la receta a la tabla de RecetasPlaneadas
       let addRecipe=new PlannedRecipe();
-      addRecipe.date=this.dateToString(this.selectedDate);
+      addRecipe.date=this.selectedDate;
       addRecipe.isConsumed=false;
       addRecipe.recipe_id=this.selectedReceta.recipe_id
       addRecipe.user_id=JSON.parse(sessionStorage.getItem('userSession')).user_id
@@ -147,8 +150,8 @@ export class VistaRecetaPage implements OnInit {
   // }
 
   private dateToString(date:string):string{
-    let splitDate=date.split('/')
-    return `${splitDate[2]}-${splitDate[0]}-${splitDate[1]}`
+    let splitDate=date.split('-')
+    return `${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`
   }
 
   public cerrarDatePicker(){

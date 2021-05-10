@@ -46,7 +46,6 @@ export class AminoacidChartComponent implements OnInit {
 
     // obtener datos del grupo concreto
     for(let i=0;i<this.groups.length;i++){
-      console.log('group.name' + this.groups[i].name)
       if(this.groups[i].name=='oligoelementos'){
         this.groupData=this.groups[i];
         

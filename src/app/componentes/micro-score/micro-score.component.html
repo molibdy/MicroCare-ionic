@@ -1,5 +1,6 @@
 <div id="chart">
-  <apx-chart
+  <div [ngClass]="isMenos ? 'chartSmall' : 'chartGrande'">
+    <apx-chart
     [series]="chartOptions.series"
     [chart]="chartOptions.chart"
     [dataLabels]="chartOptions.dataLabels"
@@ -7,6 +8,11 @@
     [xaxis]="chartOptions.xaxis"
     [fill]="chartOptions.fill"
     [legend]="chartOptions.legend"
-  ></apx-chart>
+    [yaxis]="chartOptions.yaxis"
+    ></apx-chart>
+  </div>
   <div class="textBlueRegular14 menosMargin">% Cantidad diaria recomendada</div>
-</div>
+  <div class="link" (click)="verMas()" *ngIf="isMenos">Ver más</div>
+  <div class="link" (click)="verMenos()" *ngIf="isMas">Ver menos</div>
+   
+  </div>

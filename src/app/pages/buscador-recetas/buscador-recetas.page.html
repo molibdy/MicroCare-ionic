@@ -63,7 +63,7 @@
 
             
             <div  class="wrapper">
-                <div *ngFor="let receta of recetaService.recetasParaTi; let i=index" class="item" (click)="verRecetaParaTi(i)">
+                <div *ngFor="let receta of recetaService.recetasParaTi; let i=index" class="item" >
                     <div class="row-left"> 
                         <div class="chip1" *ngIf="receta.dietas[0]">
                             {{receta.dietas[0]}}
@@ -72,7 +72,7 @@
                             {{receta.dietas[1]}}
                         </div>
                     </div>
-                    <div class="foto">
+                    <div class="foto" (click)="verRecetaParaTi(i)">
                         <img [src]="receta.photo_url">
                     </div>
                     <div class="row-center border">

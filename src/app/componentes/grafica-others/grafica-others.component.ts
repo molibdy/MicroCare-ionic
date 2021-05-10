@@ -53,9 +53,7 @@ export class GraficaOthersComponent implements OnInit {
     this.othersPercents=[]
 
     for(let i=0;i<this.averageProgress.length;i++){
-      console.log(typeof this.averageProgress[i].date)
       this.userDates.push(this.averageProgress[i].date.slice(0,10))
-      console.log(this.userDates)
       let fecha=Date.parse(this.averageProgress[i].date)
       this.userPercents.push([fecha,this.averageProgress[i].percent])
       
